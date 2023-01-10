@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Setup: run
+
+```
+git config core.hooksPath certora/scripts/hooks/
+chmod +x certora/scripts/hooks/pre-commit
+```
+
+# If you add this script to your git hooks, then `git commit` will type check
+# all of the specs with configs in the `certora/configs` directory before every
+# commit.  You can avoid the checks for a particular commit by using
+# `git commit -n`.
+
+for config in certora/configs/*.conf
+do
+    echo "typechecking $config"
+    certoraRun $config --typecheck_only || exit 1
+done
