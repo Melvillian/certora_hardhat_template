@@ -9,3 +9,7 @@ typechain-types
 cache
 artifacts
 
+#Certora
+.zip-output-url.txt
+.certora_internal/
+.certora_recent_jobs.json
