@@ -58,7 +58,7 @@ rule onceBlackListedNotOut(method f, address voter){
     bool registeredAfter; bool black_listed_After;
     age, registeredAfter, voted, vote_attempts, black_listed_After = getFullVoterDetails(e, voter);
     
-    assert (registeredBefore && black_listed_Before) => black_listed_After, "the specified user got out of the black list";
+    assert (registeredBefore && black_listed_Before) => !black_listed_After, "the specified user got out of the black list";
 }
 
 // Checks that a contender's point count is non-decreasing
