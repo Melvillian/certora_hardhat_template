@@ -43,7 +43,7 @@ jobs:
           chmod +x /usr/local/bin/solc-0.8.0
 
       - name: Munging
-        run: make munged
+        run: cd certora && make munged
 
 
       # Do the actual verification.  The `run` field could be simply
