@@ -1,4 +1,6 @@
-
+methods {
+    winner() returns address envfree;
+}
 // Checks that a voter's "registered" mark is changed correctly - 
 // if it's false after a function call, it was false before
 // if it's true after a function call it either started as true or changed from false to true via registerVoter()
@@ -75,3 +77,21 @@ rule contendersPointsNondecreasing(method f, address contender){
     assert (pointsAfter >= pointsBefore);
 }
 
+rule winnerUpdates() {
+    address u1;
+    address u2;
+    address u3;
+
+    require(u1 != u2 && u2 != u3 && u3 != u1);
+
+    uint points;
+    require(winner() == u3);
+
+    env e;
+    vote(e, u1, u2, u3);
+
+    require(winner() == u1);
+
+    assert(winner() == u1);
+
+}
