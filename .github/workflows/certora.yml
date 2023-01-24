@@ -41,6 +41,11 @@ jobs:
           wget https://github.com/ethereum/solidity/releases/download/v0.8.0/solc-static-linux
           sudo mv solc-static-linux /usr/local/bin/solc-0.8.0
           chmod +x /usr/local/bin/solc-0.8.0
+
+      - name: Munging
+        run: make munged
+
+
       # Do the actual verification.  The `run` field could be simply
       #
       #   certoraRun certora/configs/${{ matrix.params }}
