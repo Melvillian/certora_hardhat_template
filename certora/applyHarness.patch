@@ -1,0 +1,15 @@
+diff -druN Borda.sol Borda.sol
+--- Borda.sol	2023-01-23 23:11:43.000000000 -0600
++++ Borda.sol	2023-01-24 11:08:18.000000000 -0600
+@@ -26,9 +26,9 @@
+     // a list of contenders and some data on them.
+     mapping (address => Contenders) _contenders;
+     // current winner
+-    address winner;
++    address public winner;
+     // current max points 
+-    uint256 pointsOfWinner; 
++    uint256 public pointsOfWinner; 
+ 
+     constructor() public {
+         winner = address(0);

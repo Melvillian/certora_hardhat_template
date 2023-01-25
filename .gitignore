@@ -13,3 +13,5 @@ artifacts
 .zip-output-url.txt
 .certora_internal/
 .certora_recent_jobs.json
+
+certora/munged
